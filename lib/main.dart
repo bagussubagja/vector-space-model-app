@@ -5,6 +5,8 @@ import 'package:vector_space_model/provider/provider_list.dart';
 import 'package:vector_space_model/provider/theme_provider.dart';
 import 'package:vector_space_model/screen/body_screen.dart';
 
+import 'screen/splash_screen.dart';
+
 void main() {
   runApp(const App());
 }
@@ -62,7 +64,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Vector Space Model',
         theme: provider.theme,
-        home: BodyScreen(),
+        home: SplashScreen(),
       ),
     );
   }
