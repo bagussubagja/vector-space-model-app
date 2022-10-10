@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vector_space_model/provider/provider_list.dart';
+import 'package:vector_space_model/provider/theme_provider.dart';
+import 'package:vector_space_model/screen/body_screen.dart';
 import 'package:vector_space_model/screen/home_screen.dart';
 
 void main() {
@@ -23,12 +25,11 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<Themeprovider>(context, listen: true);
     return MaterialApp(
       title: 'Vector Space Model',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomePageScreen(),
+      theme: provider.theme,
+      home: BodyScreen(),
     );
   }
 }

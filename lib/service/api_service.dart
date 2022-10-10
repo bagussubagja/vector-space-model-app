@@ -6,7 +6,7 @@ Future<List<DataModel>?> getDataResult(
     {required String query, required BuildContext context}) async {
   var client = http.Client();
   var uri = Uri.parse(
-      'https://cp4g21.deta.dev/search?query=${query.replaceAll(" ", "+")}');
+      'http://cp4g21.deta.dev/search?query=${query.replaceAll(" ", "+")}');
   try {
     var respone = await client.get(uri);
     if (respone.statusCode == 200) {

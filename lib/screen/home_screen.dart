@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vector_space_model/core/data_class.dart';
+import 'package:vector_space_model/provider/theme_provider.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({Key? key}) : super(key: key);
@@ -17,8 +18,16 @@ class _HomePageScreenState extends State<HomePageScreen> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<DataClass>(context, listen: true);
+    final theme = Provider.of<Themeprovider>(context);
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                theme.toogleTheme();
+              },
+              icon: Icon(Icons.dark_mode))
+        ],
         title: const Text('Vector Space Model'),
         centerTitle: true,
       ),

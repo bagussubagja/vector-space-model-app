@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.vector_space_model">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="vector_space_model"
         android:name="${applicationName}"
