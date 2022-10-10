@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:highlight_text/highlight_text.dart';
 import 'package:provider/provider.dart';
 import 'package:skeletons/skeletons.dart';
 import 'package:vector_space_model/core/data_provider.dart';
@@ -173,10 +174,18 @@ class _ResultScreenState extends State<ResultScreen> {
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  Text(
-                                    doc.corpus,
-                                    style: const TextStyle(
+                                  TextHighlight(
+                                    text: doc.corpus,
+                                    words: { for (var v in dataProvider.query.split(" ")) v: HighlightedWord(
+                                      textStyle: const TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                      ),
+                                    ) },
+                                    textStyle: const TextStyle(
                                       fontWeight: FontWeight.w400,
+                                      color: AppColors.primaryLight,
                                       fontSize: 16,
                                     ),
                                   ),
@@ -211,25 +220,25 @@ class _ResultScreenState extends State<ResultScreen> {
                           },
                         )
                       : Column(
-                children: const [
-                  SizedBox(height: 240),
-                  Text(
-                    'Opps.. !!',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 32,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    "Query tidak ditemukan pada korpus",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
+                          children: const [
+                            SizedBox(height: 240),
+                            Text(
+                              'Opps.. !!',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 32,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              "Query tidak ditemukan pada korpus",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
               const SizedBox(
                 height: 37,
               ),
