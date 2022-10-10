@@ -10,29 +10,11 @@ class BodyScreen extends StatefulWidget {
 }
 
 class _BodyScreenState extends State<BodyScreen> {
-  List<Widget> _body = [const HomePageScreen(), AboutUsScreen()];
-
-  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _body[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-          onTap: (newIndex) {
-            setState(() {
-              _currentIndex = newIndex;
-            });
-          },
-          currentIndex: _currentIndex,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person), label: "About Us"),
-          ]),
+    return const Scaffold(
+      body: HomePageScreen(),
     );
   }
 }
