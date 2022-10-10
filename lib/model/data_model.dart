@@ -17,7 +17,7 @@ class DataModel {
 
   int documentId;
   String corpus;
-  double scores;
+  String scores;
 
   factory DataModel.fromJson(Map<String, dynamic> json) => DataModel(
     documentId: json["document_id"],

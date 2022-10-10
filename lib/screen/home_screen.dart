@@ -15,18 +15,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
   final ScrollController _scrollController = ScrollController();
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    final provider = Provider.of<DataClass>(context, listen: false);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<DataClass>(context);
+    final provider = Provider.of<DataClass>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Vector Space Model'),
+        centerTitle: true,
       ),
       body: SafeArea(
         child: Padding(
@@ -43,10 +37,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
               ),
               ElevatedButton(
                 onPressed: () async {
-                  if (queryController.text != null) {
-                    await provider.getData(query: queryController.text);
-                    queryController.clear();
-                  }
+                  await provider.getData(
+                      query: queryController.text, context: context);
+                  queryController.clear();
                 },
                 child: const Text('Search'),
               ),
@@ -72,7 +65,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             height: 5,
                           ),
                           Text(
-                              "Terdapat pada corpus : ${provider.data?[index].documentId}"),
+                              "Terdapat pada dokumen : ${provider.data?[index].documentId}"),
                           const SizedBox(
                             height: 5,
                           ),
