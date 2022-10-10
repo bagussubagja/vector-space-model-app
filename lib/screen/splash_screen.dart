@@ -12,7 +12,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacement(context, PageTransition(type: PageTransitionType.size, alignment: Alignment.bottomCenter, child: BodyScreen()));
     });
     return Scaffold(
